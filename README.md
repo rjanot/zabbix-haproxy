@@ -55,13 +55,13 @@ global
 
 * Verify on server with HAProxy installed:
 ```
-anapsix@lb1:~$ sudo zabbix_agentd -t haproxy.list.discovery[FRONTEND]
+anapsix@lb1:~$ sudo zabbix_agentd -t haproxy.list.discovery[/run/haproxy/info.sock,FRONTEND]
   haproxy.list.discovery[FRONTEND]              [t|{"data":[{"{#FRONTEND_NAME}":"http-frontend"},{"{#FRONTEND_NAME}":"https-frontend"}]}]
     
-anapsix@lb1:~$ sudo zabbix_agentd -t haproxy.list.discovery[BACKEND]
+anapsix@lb1:~$ sudo zabbix_agentd -t haproxy.list.discovery[/run/haproxy/info.sock,BACKEND]
   haproxy.list.discovery[BACKEND]               [t|{"data":[{"{#BACKEND_NAME}":"www-backend"},{"{#BACKEND_NAME}":"api-backend"}]}]
     
-anapsix@lb1:~$ sudo zabbix_agentd -t haproxy.list.discovery[SERVERS]
+anapsix@lb1:~$ sudo zabbix_agentd -t haproxy.list.discovery[/run/haproxy/info.sock,SERVERS]
   haproxy.list.discovery[SERVERS]               [t|{"data":[{"{#BACKEND_NAME}":"www-backend","{#SERVER_NAME}":"www01"},{"{#BACKEND_NAME}":"www-backend","{#SERVER_NAME}":"www02"},{"{#BACKEND_NAME}":"www-backend","{#SERVER_NAME}":"www03"},{"{#BACKEND_NAME}":"api-backend","{#SERVER_NAME}":"api01"},{"{#BACKEND_NAME}":"api-backend","{#SERVER_NAME}":"api02"},{"{#BACKEND_NAME}":"api-backend","{#SERVER_NAME}":"api03"}]}]
 ```
 
